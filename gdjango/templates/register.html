@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="text-center"><h3>Fill your details</h3></div>
+
+    <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 border mt-2">
+    <form action="register" method="POST" class="mt-2">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="email">FirstName:</label>
+            <input type="text" name="fn" class="form-control" placeholder="first name" required>
+        </div>
+        <div class="form-group" col-md-4>
+            <label for="email">LastName:</label>
+            <input type="text" name="ln" class="form-control" placeholder="last name" required>
+        </div>
+        <div class="form-group" col-md-4>
+            <label for="email">UserName:</label>
+            <input type="text" name="un" class="form-control" placeholder="user name" required>
+        </div>
+        <div class="form-group" col-md-4>
+            <label for="email">Email:</label>
+            <input type="email" name="email" class="form-control" placeholder="emailid" required>
+        </div>
+        <div class="form-group" col-md-4>
+            <label for="email">Password:</label>
+            <input type="password" name="pass1" class="form-control" placeholder="password" required>
+        </div>
+        <div class="form-group" col-md-4>
+            <label for="email">Confirm Password:</label>
+            <input type="password" name="pass2" class="form-control" placeholder="confirm password" required>
+        </div>
+        <div>
+            {% for m in messages %}
+                <h3>{{m}}</h3>
+            {% endfor %}
+        </div>
+        <input class="btn btn-primary mb-2" type="submit">
+    </form>
+    </div>
+    <div class="col-md-4"></div>
+    </div>
+</body>
+</html>
